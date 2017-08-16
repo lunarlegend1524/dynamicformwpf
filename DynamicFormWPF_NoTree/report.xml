@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tblReport>
+  <report id="rp101">
+    <TypeID>1</TypeID>
+    <Content>10 người chết</Content>
+    <Date>2012-09-22</Date>
+    <ClientID>001</ClientID>
+  </report>
+  <report id="rp102">
+    <TypeID>1</TypeID>
+    <Content>12 người chết</Content>
+    <Date>2012-10-15</Date>
+    <ClientID>002</ClientID>
+  </report>
+  <report id="rp103">
+    <TypeID>1</TypeID>
+    <Content>2 người bị thương</Content>
+    <Date>2012-08-12</Date>
+    <ClientID>003</ClientID>
+  </report>
+  <report id="rp104">
+    <TypeID>2</TypeID>
+    <Content>2 xe hỏng</Content>
+    <Date>2012-11-04</Date>
+    <ClientID>002</ClientID>
+  </report>
+  <report id="rp105">
+    <TypeID>2</TypeID>
+    <Content>4 nhà cháy</Content>
+    <Date>2012-12-05</Date>
+    <ClientID>004</ClientID>
+  </report>
+</tblReport>

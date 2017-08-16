@@ -1,0 +1,14 @@
+﻿<Window x:Class="DynamicFormWPF.ModemSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thiết lập modem" Height="265" Width="406" Icon="/DynamicFormWPF;component/Images/Setting.png" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Name="_windowModem" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Kết nối" Height="23" HorizontalAlignment="Left" Margin="92,132,0,0" Name="_btnConnect" VerticalAlignment="Top" Width="83" Click="_btnConnect_Click" />
+        <Label Content="Cổng kết nối" Height="28" HorizontalAlignment="Left" Margin="46,37,0,0" Name="label1" VerticalAlignment="Top" Width="138" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="211,37,0,0" Name="_cbbPort" VerticalAlignment="Top" Width="132" SelectionChanged="_cbbPort_SelectionChanged">
+        </ComboBox>
+        <Button Content="Đóng kết nối" Height="23" HorizontalAlignment="Left" Margin="221,132,0,0" VerticalAlignment="Top" Width="87" Name="_btnDisconnect" Click="_btnDisconnect_Click" />
+        <Label Content="Tốc độ" Height="28" HorizontalAlignment="Left" Margin="46,88,0,0" Name="label2" VerticalAlignment="Top" Width="138" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="211,88,0,0" Name="_cbbBaudRate" VerticalAlignment="Top" Width="132" SelectionChanged="_cbbBaudRate_SelectionChanged"></ComboBox>
+    </Grid>
+</Window>

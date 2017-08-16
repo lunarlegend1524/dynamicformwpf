@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicFormWPF", "DynamicFormWPF\DynamicFormWPF.csproj", "{6BE643F0-96C2-4826-87C6-85D0CA5E4306}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64930154-9BBE-448B-82DE-2D0E88DE06FF}"
+	ProjectSection(SolutionItems) = preProject
+		HB_22-10-2012.rtf = HB_22-10-2012.rtf
+		report2.xml = report2.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientFormWPF", "ClientFormWPF\ClientFormWPF.csproj", "{0452920C-5E55-48E8-ABF0-5D3561D08ABE}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BE643F0-96C2-4826-87C6-85D0CA5E4306}.Debug|x86.ActiveCfg = Debug|x86
+		{6BE643F0-96C2-4826-87C6-85D0CA5E4306}.Debug|x86.Build.0 = Debug|x86
+		{6BE643F0-96C2-4826-87C6-85D0CA5E4306}.Release|x86.ActiveCfg = Release|x86
+		{6BE643F0-96C2-4826-87C6-85D0CA5E4306}.Release|x86.Build.0 = Release|x86
+		{0452920C-5E55-48E8-ABF0-5D3561D08ABE}.Debug|x86.ActiveCfg = Debug|x86
+		{0452920C-5E55-48E8-ABF0-5D3561D08ABE}.Debug|x86.Build.0 = Debug|x86
+		{0452920C-5E55-48E8-ABF0-5D3561D08ABE}.Release|x86.ActiveCfg = Release|x86
+		{0452920C-5E55-48E8-ABF0-5D3561D08ABE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

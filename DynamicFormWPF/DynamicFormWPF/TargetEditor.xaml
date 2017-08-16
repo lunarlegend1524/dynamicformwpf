@@ -1,0 +1,15 @@
+﻿<Window x:Class="DynamicFormWPF.TargetEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chính sửa chỉ tiêu" Height="195" Width="405" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/DynamicFormWPF;component/Images/Edit.png">
+    <Grid>
+        <Button Height="33" HorizontalAlignment="Left" Margin="161,111,0,0" Name="_btnSaveTargetName" VerticalAlignment="Top" Width="65" Click="_btnSaveTargetName_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Images/Save.png" />
+                <Label>Lưu</Label>
+            </StackPanel>
+        </Button>
+        <TextBox Height="23" Margin="37,61,26,0" Name="_txtTargetNameEdit" VerticalAlignment="Top" />
+        <Label Content="Tên chỉ tiêu" Height="28" HorizontalAlignment="Left" Margin="161,27,0,0" Name="label1" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

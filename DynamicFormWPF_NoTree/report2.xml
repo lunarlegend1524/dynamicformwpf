@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tblRecord>
+  <record id="rc101">
+    <TargetName>a</TargetName>
+    <QuantityValue>5</QuantityValue>
+    <ClientName>YB</ClientName>
+    <RecordTime>2011-12-14</RecordTime>
+  </record>
+  <record id="rc102">
+    <TargetName>c</TargetName>
+    <QuantityValue>56</QuantityValue>
+    <ClientName>HB</ClientName>
+    <RecordTime>2012-09-22</RecordTime>
+  </record>
+</tblRecord>

@@ -1,0 +1,103 @@
+﻿<Window x:Class="DynamicFormWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SEIS" Height="479" MinHeight="479" MinWidth="680" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Normal" WindowStyle="SingleBorderWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignWidth="680" SizeToContent="Width" Icon="/DynamicFormWPF;component/Images/Dial-up.png" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" Closed="Window_Closed" Closing="Window_Closing">
+    <Grid Height="auto" Width="auto">
+        <DataGrid HorizontalAlignment="Left" Name="_dataGridList" CanUserReorderColumns="False" CanUserSortColumns="True" Width="298" Margin="0,133,0,0" AutoGenerateColumns="False" FrozenColumnCount="2" SelectedCellsChanged="_dataGridList_SelectedCellsChanged" GridLinesVisibility="None" CanUserResizeColumns="True" CanUserResizeRows="False" IsReadOnly="True" />
+        <Label Height="32" HorizontalAlignment="Left" Margin="12,95,0,0" Name="_lblList" VerticalAlignment="Top" Width="100" />
+        <Button Margin="339,0,0,3" Name="_btnUpdateDB" VerticalAlignment="Bottom" Height="32" HorizontalAlignment="Left" Width="135" Click="_btnUpdateDB_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Images/Save.png"/>
+                <Label>Lưu vào CSDL</Label>
+            </StackPanel>
+        </Button>
+        <Button Height="32" HorizontalAlignment="Left" Margin="519,0,0,3" Name="_btnSend" VerticalAlignment="Bottom" Width="103" Click="_btnSend_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Images/Send.png"/>
+                <Label>Gửi tệp đi</Label>
+            </StackPanel>
+        </Button>
+        <Menu Height="23" HorizontalAlignment="Left" Name="_menuMain" VerticalAlignment="Top" Width="298" IsMainMenu="True">
+            <MenuItem Header="_Tệp" Name="_menuItemFile">
+                <MenuItem Header="_Mở tệp" Click="Menu_File_Open_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/OpenFile.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Lưu tệp" Click="Menu_File_Save_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/SaveFile.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Thoát chương trình" Click="Menu_File_Exit_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/Exit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Cơ sở dữ liệu" Name="_menuItemDB" IsCheckable="False" IsEnabled="True">
+                <MenuItem Header="_Tạo cơ sở dữ liệu mới" Click="Create_New_Database_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/AddDB.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Chọn cơ sở dữ liệu" Click="Select_New_Database_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/SelectDB.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Chỉ tiêu" Name="_menuItemReport" IsEnabled="False">
+                <MenuItem Header="_Tạo chỉ tiêu mới" Click="Menu_DB_AddNewTarget_Click" Name="Menu_DB_AddNewTarget">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/Add.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Tạo báo cáo" Click="Menu_File_Report_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/Report.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Modem" Name="_menuItemModem">
+                <MenuItem Header="_Thiết lập modem" Click="Menu_Modem_Settings_Click">
+                    <MenuItem.Icon>
+                        <Image Width="18" Height="18" Source="Images/Setting.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ScrollViewer Name ="_scrollViewerTreeView" HorizontalScrollBarVisibility="Auto" Margin="304,0,0,38" VerticalScrollBarVisibility="Disabled">
+            <WrapPanel Height="auto" Width="auto" Name="_wrapPanelDragDrop" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Top" Visibility="Visible">
+            </WrapPanel>
+        </ScrollViewer>
+        <Button Content="TreeViewMode" Height="23" HorizontalAlignment="Left" Margin="208,75,0,0" Name="_btnSwitchMode" VerticalAlignment="Top" Width="90" Click="_btnSwitchMode_Click" />
+        <Grid Margin="304,0,0,41" Name="_gridTreeList" Visibility="Visible">
+            <dxg:TreeListControl ItemsSource="{Binding Path=DataSource}" Name="_treeListTarget" IsEnabled="True" ShowBorder="True">
+            <dxg:TreeListControl.Columns>
+                <dxg:TreeListColumn FieldName="TargetName" Header="Tên chỉ tiêu" VisibleIndex="0" AllowEditing="False" AllowMoving="False" AllowResizing="True" AllowSorting="True" />
+                <dxg:TreeListColumn FieldName="QuantityValue" Header="Số lượng" ReadOnly="False" Tag="QuantityValue" UnboundType="Integer" VisibleIndex="1" Name="_treeListColumnQuantity" AllowEditing="True" Focusable="True" AllowSorting="True" AllowResizing="True" AllowMoving="False">
+                    <dxg:TreeListColumn.EditSettings>
+                        <dxe:SpinEditSettings MinValue="1" Tag="QuantityValue" IsFloatValue="False" IsTextEditable="True" />
+                    </dxg:TreeListColumn.EditSettings>
+                </dxg:TreeListColumn>
+                    <dxg:TreeListColumn FieldName="RecordTime" Header="Ngày nhập" ReadOnly="False" VisibleIndex="2" Name="_treeListColumnDate" UnboundType="DateTime" Focusable="True" Tag="RecordTime" AllowEditing="True" AllowMoving="False" AllowResizing="True" AllowSorting="True">
+                    <dxg:TreeListColumn.EditSettings>
+                        <dxe:DateEditSettings DisplayFormat="dd/MM/yyyy"/>
+                    </dxg:TreeListColumn.EditSettings>
+                </dxg:TreeListColumn>
+                <dxg:TreeListColumn FieldName="TargetID" ReadOnly="True" Visible="False" VisibleIndex="5" Width="40" />
+                <dxg:TreeListColumn FieldName="ParentID" ReadOnly="True" Visible="False" VisibleIndex="6" Width="80" />
+            </dxg:TreeListControl.Columns>
+            <dxg:TreeListControl.TotalSummary>
+                <dxg:TreeListSummaryItem FieldName="Count" SummaryType="Count" />
+            </dxg:TreeListControl.TotalSummary>
+            <dxg:TreeListControl.View>
+                <dxg:TreeListView AllowColumnFiltering="False" AllowHorizontalScrollingVirtualization="False" AutoWidth="True" KeyFieldName="TargetID" Name="_treeListView" ParentFieldName="ParentID" ShowSearchPanelMode="Never" ShowTotalSummary="True" />
+            </dxg:TreeListControl.View>
+        </dxg:TreeListControl>
+        </Grid>
+        <Button Content="Nhập lại" Height="23" HorizontalAlignment="Left" Margin="220,104,0,0" Name="_btnClearTree" VerticalAlignment="Top" Width="68" Click="_btnClearTree_Click" ToolTip="Xóa hết các dữ liệu vừa nhập" />
+        <Label Content="Chưa có CSDL" Height="28" HorizontalAlignment="Left" Margin="0,29,0,0" Name="_lblDB" VerticalAlignment="Top" Width="298" />
+    </Grid>
+</Window>
